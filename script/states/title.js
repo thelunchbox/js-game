@@ -11,21 +11,16 @@ class Title extends State {
     }
 
     draw(renderer) {
-        renderer.isolatePath(() => {
-            renderer.strokeAndFillText('Game Title', renderer.center.x, renderer.center.y);
-            renderer.isolatePath(() => {
-                renderer.oscillateText('Press Any Key', renderer.center.x, renderer.center.y + 100, this.frame, { drag: 3, padding: 3 });
-            }, {
-                font: '36pt Arial',
-            })
-        }, {
-            font: '72pt Arial',
+        renderer.isolate({
+            font: '72pt Consolas',
             fillStyle: '#fff',
-            strokeStyle: '#000',
+            strokeStyle: '#e00',
             lineWidth: 10,
             lineJoin: 'round',
             textAlign: 'center',
             textBaseline: 'middle',
+        }, () => {
+            renderer.strokeAndFillText('js13k', renderer.center.x, renderer.center.y);
         });
     }
 }

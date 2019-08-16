@@ -1,28 +1,14 @@
 {
-  "name": "electron-game-base",
+  "name": "js13k-bpg-entry",
   "version": "1.0.0",
-  "description": "Base for setting up a game in electron",
-  "main": "index.js",
+  "description": "Button Punch Games entry in js13k",
+  "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "npm test"
-  },
-  "build": {
-    "appId": "game.electron",
-    "mac": {
-      "category": "sports.games"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "maintainer": ""
-    }
+    "build": "webpack --config webpack.config.js && node post-webpack.js"
   },
   "devDependencies": {
-    "electron": "^3.0.13",
-    "electron-builder": "^20.40.2"
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
   },
   "author": {
     "name": "Alex Merkert",

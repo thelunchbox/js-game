@@ -1,31 +1,11 @@
-const { remote } = require('electron');
 const { getStartingState, getNextState } = require('./stateFactory');
-const Renderer = require('./renderer');
-const electronWindow = remote.getCurrentWindow();
-const path = require('path');
+const renderer = require('./renderer');
 
 const keys = [];
 window.addEventListener('keydown', ({ keyCode }) => {
-    switch (keyCode) {
-        case 27:
-            electronWindow.close();
-            break;
-        case 121: // F10
-        case 122: // F11
-            electronWindow.setKiosk(!electronWindow.isKiosk());
-            break;
-        case 116: // F5
-            electronWindow.reload();
-            break;
-        case 123: // F12
-            remote.getCurrentWebContents().openDevTools();
-            break;
-        default: // all others
-            const index = keys.indexOf(keyCode);
-            if (index > -1) return;
-            keys.push(keyCode);
-            break;
-    }
+    const index = keys.indexOf(keyCode);
+    if (index > -1) return;
+    keys.push(keyCode);
 });
 
 window.addEventListener('keyup', ({ keyCode }) => {
@@ -34,11 +14,10 @@ window.addEventListener('keyup', ({ keyCode }) => {
     keys.splice(index, 1);
 });
 
-const renderer = new Renderer(document.body);
 let state = getStartingState();
 
 // load any images - we could loop through the img folder if we needed to
-renderer.loadSprite('frog', './img/frog.png');
+// renderer.loadSprite('frog', './img/frog.png');
 
 let last = (new Date()).getTime();
 const update = () => {
