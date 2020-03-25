@@ -1,7 +1,7 @@
 {
-  "name": "js13k-bpg-entry",
+  "name": "js-game-template",
   "version": "1.0.0",
-  "description": "Button Punch Games entry in js13k",
+  "description": "Button Punch Games javascript game template",
   "main": "main.js",
   "scripts": {
     "build": "webpack --config webpack.config.js && node post-webpack.js"

@@ -1,6 +1,4 @@
-# JS 13k
-
-[https://js13kgames.com/](https://js13kgames.com/)
+# JS Game Template
 
 To build this game:
 1. run `npm i`

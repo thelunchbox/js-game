@@ -20,7 +20,7 @@ class Title extends State {
             textAlign: 'center',
             textBaseline: 'middle',
         }, () => {
-            renderer.strokeAndFillText('js13k', renderer.center.x, renderer.center.y);
+            renderer.strokeAndFillText('BACK', renderer.center.x, renderer.center.y);
         });
     }
 }
